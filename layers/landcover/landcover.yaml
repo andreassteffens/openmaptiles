@@ -12,6 +12,7 @@ layer:
       from Natural Earth data for glaciers and ice shelves and at higher zoom levels the landcover is [implied by OSM tags](http://wiki.openstreetmap.org/wiki/Landcover). The most common use case for this layer
         is to style wood (`class=wood`) and grass (`class=grass`) areas.
   buffer_size: 4
+  at_region_intersection_max_zoom: 5
   fields:
     class:
       description: |
@@ -79,7 +80,7 @@ layer:
       - wood
   datasource:
     geometry_field: geometry
-    query: (SELECT geometry, class, subclass FROM layer_landcover(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, class, subclass FROM layer_landcover(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
   - ./generalized.sql
   - ./landcover.sql

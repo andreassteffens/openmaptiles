@@ -128,7 +128,7 @@ layer:
   datasource:
     geometry_field: geometry
     srid: 900913
-    query: (SELECT geometry, name, name_en, name_de, {name_languages}, ref, ref_length, network::text, class::text, subclass, brunnel, layer, level, indoor, route_1_network, route_1_ref, route_1_name, route_1_colour, route_2_network, route_2_ref, route_2_name, route_2_colour, route_3_network, route_3_ref, route_3_name, route_3_colour, route_4_network, route_4_ref, route_4_name, route_4_colour, route_5_network, route_5_ref, route_5_name, route_5_colour, route_6_network, route_6_ref, route_6_name, route_6_colour FROM layer_transportation_name(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, name, name_en, name_de, {name_languages}, ref, ref_length, network::text, class::text, subclass, brunnel, layer, level, indoor, route_1_network, route_1_ref, route_1_name, route_1_colour, route_2_network, route_2_ref, route_2_name, route_2_colour, route_3_network, route_3_ref, route_3_name, route_3_colour, route_4_network, route_4_ref, route_4_name, route_4_colour, route_5_network, route_5_ref, route_5_name, route_5_colour, route_6_network, route_6_ref, route_6_name, route_6_colour FROM layer_transportation_name(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
   - ./highway_classification.sql
   - ./update_transportation_name.sql

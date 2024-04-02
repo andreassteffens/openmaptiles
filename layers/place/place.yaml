@@ -71,11 +71,12 @@ layer:
           Natural Earth `scalerank` combined with a local rank
           within a grid for cities that do not have a Natural Earth `scalerank`.
   buffer_size: 256
+  at_region_intersection_max_zoom: 5
   datasource:
     geometry_field: geometry
     key_field: osm_id
     key_field_as_attribute: no
-    query: (SELECT osm_id, geometry, name, name_en, name_de, {name_languages}, class, rank, capital, iso_a2 FROM layer_place(!bbox!, z(!scale_denominator!), !pixel_width!)) AS t
+    query: (SELECT osm_id, geometry, name, name_en, name_de, {name_languages}, class, rank, capital, iso_a2 FROM layer_place(!bbox!, z(!scale_denominator!), !pixel_width!)!at_region_restriction!) AS t
 schema:
   - ./types.sql
   - ./capital.sql

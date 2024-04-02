@@ -60,9 +60,10 @@ layer:
           Mark with `1` if it is a maritime border.
       values: [0, 1]
   buffer_size: 4
+  at_region_intersection_max_zoom: 5
   datasource:
     geometry_field: geometry
-    query: (SELECT geometry, admin_level, adm0_l, adm0_r, disputed, disputed_name, claimed_by, maritime, class, name, {name_languages} FROM layer_boundary(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, admin_level, adm0_l, adm0_r, disputed, disputed_name, claimed_by, maritime, class, name, {name_languages} FROM layer_boundary(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
   - ./update_boundary_polygon.sql
   - ./boundary_name.sql

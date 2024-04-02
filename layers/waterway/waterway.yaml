@@ -16,6 +16,7 @@ layer:
       starting z13 there is no generalization according to `class` field applied.
       Waterways do not have a `subclass` field.
   buffer_size: 4
+  at_region_intersection_max_zoom: 5
   fields:
     name: |
         The OSM [`name`](http://wiki.openstreetmap.org/wiki/Key:name) value of the waterway. Language-specific values are in `name:xx`.
@@ -43,7 +44,7 @@ layer:
       values: [0, 1]
   datasource:
     geometry_field: geometry
-    query: (SELECT geometry, name, name_en, name_de, {name_languages}, class, brunnel, intermittent FROM layer_waterway(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, name, name_en, name_de, {name_languages}, class, brunnel, intermittent FROM layer_waterway(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
   - ./update_waterway_linestring.sql
   - ./update_important_waterway.sql

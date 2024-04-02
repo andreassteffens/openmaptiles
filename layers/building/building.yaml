@@ -4,12 +4,13 @@ layer:
       All [OSM Buildings](http://wiki.openstreetmap.org/wiki/Buildings). All building tags are imported ([`building=*`](http://wiki.openstreetmap.org/wiki/Key:building)).
       Only buildings with tag location:underground are excluded.
   buffer_size: 4
+  at_region_intersection_max_zoom: 5
   datasource:
     geometry_field: geometry
     key_field: osm_id
     key_field_as_attribute: no
     srid: 900913
-    query: (SELECT osm_id, geometry, render_height, render_min_height, colour, hide_3d FROM layer_building(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT osm_id, geometry, render_height, render_min_height, colour, hide_3d FROM layer_building(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
   fields:
     render_height: |
         An approximated height from levels and height of the building or building:part.

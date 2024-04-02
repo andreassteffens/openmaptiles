@@ -5,6 +5,7 @@ layer:
       Airport buildings are contained in the **building** layer but all
       other airport related polygons can be found in the **aeroway** layer.
   buffer_size: 4
+  at_region_intersection_max_zoom: 5
   fields:
     ref: The OSM [`ref`](http://wiki.openstreetmap.org/wiki/Key:ref) tag of the runway/taxiway.
     class:
@@ -22,7 +23,7 @@ layer:
       - gate
   datasource:
     geometry_field: geometry
-    query: (SELECT geometry, ref, class FROM layer_aeroway(!bbox!, z(!scale_denominator!))) AS t
+    query: (SELECT geometry, ref, class FROM layer_aeroway(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
   - ./aeroway.sql
 datasources:
