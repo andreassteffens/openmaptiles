@@ -58,6 +58,8 @@ services:
       PGPASSWORD: ${PGPASSWORD:-openmaptiles}
       PGPORT: ${PGPORT:-5432}
       MBTILES_FILE: ${MBTILES_FILE}
+      AT_REGION: ${AT_REGION}
+      LIST_FILE: ${LIST_FILE}
     networks:
       - postgres
     volumes:
