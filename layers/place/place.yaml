@@ -71,7 +71,7 @@ layer:
           Natural Earth `scalerank` combined with a local rank
           within a grid for cities that do not have a Natural Earth `scalerank`.
   buffer_size: 256
-  at_region_intersection_max_zoom: 5
+  at_region_intersection_max_zoom: 14
   datasource:
     geometry_field: geometry
     key_field: osm_id

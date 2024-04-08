@@ -56,7 +56,7 @@ layer:
         - bridge
         - tunnel
   buffer_size: 4
-  at_region_intersection_max_zoom: 5
+  at_region_intersection_max_zoom: 14
   datasource:
     query: (SELECT id, geometry, class, intermittent, brunnel FROM layer_water(!bbox!, z(!scale_denominator!))!at_region_restriction!) AS t
 schema:
